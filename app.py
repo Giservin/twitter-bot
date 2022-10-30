@@ -12,7 +12,7 @@ authenticator.set_access_token(access_token, access_token_secret)
 
 try:
 	api = tweepy.API(authenticator, wait_on_rate_limit=True)
-except FailToConnect:
+except:
 	print('Failed to connect')
 
 while True:
@@ -20,7 +20,7 @@ while True:
 	day = int(file.read())
 	try:
 		api.update_status('Day '+ str(day)+ ' : No')
-	except FailToConnect:
+	except:
 		print('Failed to connect')
 	file = open('count.txt', 'w')
 	day = day+1
